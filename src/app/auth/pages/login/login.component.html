@@ -1,0 +1,62 @@
+<div class="cont1" align="center">
+  <div style="background-color: #CDCECF;padding: 20px">
+  </div>
+  <br>
+  <br>
+
+  <div class="col-12 p-2">
+    <form #login="ngForm">
+      <div class="row">
+        <div class="col-4"></div>
+        <div class="col-5">
+          <div class="row">
+            <div class="col-10">
+              <label>Usuario</label>
+              <input type="text" class="form-control" name="usuario" [(ngModel)]="email" [pattern]="emailPattern" #usuario="ngModel" required>
+              <div *ngIf="usuario.errors">
+                <div *ngIf="usuario.errors.pattern">
+                    <strong class="text-danger">No es un usuario v&aacute;lido</strong>
+                </div>
+                <div *ngIf="usuario.errors.maxlength">
+                    <strong class="text-danger">Caracteres m&aacute;ximos 255</strong>
+                </div>
+            </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-10">
+              <label>Password</label>
+              <input type="password" class="form-control" name="password" [(ngModel)]="passwd" [pattern]="pwdPattern" required>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-3"></div>
+        <br>
+        <br>
+        <br>
+
+
+      </div>
+
+      <br>
+
+      <div class="row">
+        <div class="col-4"></div>
+        <div class="col-5 text-right">
+          <div class="row">
+            <div class="row col-10">
+                <div class="col-6">
+                  <button class="btn btn-outline-success" [routerLink]="['/auth/registro']">Registro</button>
+                </div>
+                <div class="col-6">
+                  <button class="btn btn-outline-success" [disabled]="login.valid" [routerLink]="['/noticias/noticias']">Entrar</button>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-3"></div>
+      </div>
+    </form>
+  </div>
+</div>
